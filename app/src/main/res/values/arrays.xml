@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="country_arrays">
+        <item>বিভাগ নির্বাচন করুন</item>
+        <item>খুলনা</item>
+        <item>চট্টগ্রাম</item>
+        <item>ঢাকা</item>
+        <item>বরিশাল</item>
+        <item>রংপুর</item>
+        <item>রাজশাহী</item>
+        <item>সিলেট</item>
+        <item>ময়মনসিংহ</item>
+    </array>
+    <array name="specialist_aray">
+        <item>বিশেষজ্ঞ নির্বাচন করুন</item>
+        <item>চক্ষু-বিশেষজ্ঞ</item>
+        <item>শিশুরোগ-বিশেষজ্ঞ</item>
+        <item>মেডিসিন-বিশেষজ্ঞ</item>
+        <item>স্নায়ুরোগ-বিশেষজ্ঞ</item>
+        <item>হৃদরোগ-বিশেষজ্ঞ</item>
+        <item>মনোরোগ-বিশেষজ্ঞ</item>
+        <item>মেরুদণ্ড-বিশেষজ্ঞ</item>
+        <item>স্ত্রী-রোগ-বিশেষজ্ঞ</item>
+        <item>ডায়াবেটিস-বিশেষজ্ঞ</item>
+        <item>মুখ-দাঁত-রোগ-বিশেষজ্ঞ</item>
+        <item>ইউরোলজী-বিশেষজ্ঞ</item>
+        <item>পরিপাকতন্ত্র-বিশেষজ্ঞ</item>
+        <item>কিডনী-রোগ-বিশেষজ্ঞ</item>
+        <item>প্যারালাইসিস বিশেষজ্ঞ</item>
+        <item>হাড়- জোড়া-রোগ-বিশেষজ্ঞ</item>
+        <item>নাক-কান-গলা-রোগ-বিশেষজ্ঞ</item>
+        <item>চর্ম-এলার্জি-যৌন-রোগ-বিশেষজ্ঞ</item>
+        <item>ল্যাপারোসকপিক-সার্জন</item>
+        <item>কনসালটেন্ট-সনোলজিষ্ট</item>
+        <item>রেডিওলজী-এন্ড-ইমেজিং-বিশেষজ্ঞ</item>
+        <item>জেনারেল-সার্জন</item>
+        <item>মাইক্রোবায়োলজী-বিশেষজ্ঞ</item>
+        <item>বিশেষজ্ঞ</item>
+        <item>বিশেষজ্ঞ</item>
+    </array>
+</resources>
