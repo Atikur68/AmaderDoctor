@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "617365985533",
+    "firebase_url": "https://amader-doctor-a0ac5.firebaseio.com",
+    "project_id": "amader-doctor-a0ac5",
+    "storage_bucket": "amader-doctor-a0ac5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617365985533:android:7ec83c08df4ab7f9e0c694",
+        "android_client_info": {
+          "package_name": "com.atikur.amaderdoctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "617365985533-1g8sss0lr7jnra60k9jp5tkidi8hbebt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.atikur.amaderdoctor",
+            "certificate_hash": "3d905a8b3cfb385e9e08918475740605aa780068"
+          }
+        },
+        {
+          "client_id": "617365985533-iqdit4clp60d3726ti53vsfonb20sa3l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_nSBlqDZZQKTDh7asLjiRlYYn_UHuTqg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617365985533-iqdit4clp60d3726ti53vsfonb20sa3l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

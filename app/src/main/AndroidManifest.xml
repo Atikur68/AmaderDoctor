@@ -29,7 +29,8 @@
         <activity android:name=".PhoneVerification" />
         <activity android:name=".SearchDistrictAll" />
         <activity android:name=".SearchSpecialist" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppThemeNew">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

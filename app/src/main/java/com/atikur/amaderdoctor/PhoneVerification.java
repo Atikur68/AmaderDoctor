@@ -9,6 +9,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,16 +24,15 @@ import com.google.firebase.auth.PhoneAuthProvider;
 import java.util.concurrent.TimeUnit;
 
 public class PhoneVerification extends AppCompatActivity {
-    FirebaseAuth auth;
-    Button btnGenerateOTP;
-    Button btnSignIn;
-    EditText etOTP;
-    EditText etPhoneNumber;
-    PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallback;
-    String otp;
-    String phoneNumber;
+    private FirebaseAuth auth;
+    private Button btnGenerateOTP,btnSignIn;
+    private TextView btnResend;
+    private EditText etOTP,etPhoneNumber;
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallback;
+    private String otp,phoneNumber;
     /* access modifiers changed from: private */
     public String verificationCode;
+    private LinearLayout llverificationCode, llphoneNumber;
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
@@ -39,7 +40,7 @@ public class PhoneVerification extends AppCompatActivity {
         setContentView(R.layout.activity_phone_verification);
         findViews();
         StartFirebaseLogin();
-        this.btnGenerateOTP.setOnClickListener(new View.OnClickListener() {
+        btnGenerateOTP.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 PhoneVerification phoneVerification = PhoneVerification.this;
                 StringBuilder sb = new StringBuilder();
@@ -47,12 +48,23 @@ public class PhoneVerification extends AppCompatActivity {
                 sb.append(PhoneVerification.this.etPhoneNumber.getText().toString());
                 phoneVerification.phoneNumber = sb.toString();
                 PhoneAuthProvider.getInstance().verifyPhoneNumber(PhoneVerification.this.phoneNumber, 60, TimeUnit.SECONDS, (Activity) PhoneVerification.this, PhoneVerification.this.mCallback);
+
+                llphoneNumber.setVisibility(View.GONE);
+                llverificationCode.setVisibility(View.VISIBLE);
             }
         });
-        this.btnSignIn.setOnClickListener(new View.OnClickListener() {
+        btnSignIn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 PhoneVerification.this.otp = PhoneVerification.this.etOTP.getText().toString();
                 PhoneVerification.this.SigninWithPhone(PhoneAuthProvider.getCredential(PhoneVerification.this.verificationCode, PhoneVerification.this.otp));
+            }
+        });
+
+        btnResend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                llphoneNumber.setVisibility(View.VISIBLE);
+                llverificationCode.setVisibility(View.GONE);
             }
         });
     }
@@ -72,17 +84,21 @@ public class PhoneVerification extends AppCompatActivity {
     }
 
     private void findViews() {
-        this.btnGenerateOTP = (Button) findViewById(R.id.btn_generate_otp);
-        this.btnSignIn = (Button) findViewById(R.id.btn_sign_in);
-        this.etPhoneNumber = (EditText) findViewById(R.id.et_phone_number);
-        this.etOTP = (EditText) findViewById(R.id.et_otp);
+        btnGenerateOTP = findViewById(R.id.btn_generate_otp);
+        btnSignIn = findViewById(R.id.btn_sign_in);
+        etPhoneNumber = findViewById(R.id.et_phone_number);
+        etOTP = findViewById(R.id.et_otp);
+        llverificationCode = findViewById(R.id.verificationCode);
+        llphoneNumber = findViewById(R.id.phoneNumber);
+        btnResend = findViewById(R.id.btnResend);
+
     }
 
     private void StartFirebaseLogin() {
         this.auth = FirebaseAuth.getInstance();
         this.mCallback = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-                Toast.makeText(PhoneVerification.this, "verification completed", Toast.LENGTH_LONG).show();
+              //  Toast.makeText(PhoneVerification.this, "verification completed", Toast.LENGTH_LONG).show();
             }
 
             public void onVerificationFailed(FirebaseException e) {

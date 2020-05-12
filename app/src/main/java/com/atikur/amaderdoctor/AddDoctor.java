@@ -107,12 +107,12 @@ public class AddDoctor extends AppCompatActivity {
         } else {
             this.doctorDesignation.setError(null);
         }
-        if (this.chamberString.isEmpty()) {
-            this.doctorChamber.setError("ফাকা রাখা যাবে না ");
-            checker = false;
-        } else {
-            this.doctorChamber.setError(null);
-        }
+//        if (this.chamberString.isEmpty()) {
+//            this.doctorChamber.setError("ফাকা রাখা যাবে না ");
+//            checker = false;
+//        } else {
+//            this.doctorChamber.setError(null);
+//        }
         if (this.distDivStr.isEmpty()) {
             this.distDiv.setError("ফাকা রাখা যাবে না ");
             checker = false;
@@ -131,12 +131,12 @@ public class AddDoctor extends AppCompatActivity {
         } else {
             this.specialistOn.setError(null);
         }
-        if (this.doctorChambertimestr.isEmpty()) {
-            this.doctorChambertime.setError("ফাকা রাখা যাবে না ");
-            checker = false;
-        } else {
-            this.doctorChambertime.setError(null);
-        }
+//        if (this.doctorChambertimestr.isEmpty()) {
+//            this.doctorChambertime.setError("ফাকা রাখা যাবে না ");
+//            checker = false;
+//        } else {
+//            this.doctorChambertime.setError(null);
+//        }
         if (checker) {
             RequestQueue newRequestQueue = Volley.newRequestQueue(this);
             this.progressDialog = new ProgressDialog(this);
