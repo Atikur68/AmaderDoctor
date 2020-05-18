@@ -31,7 +31,7 @@
         android:layout_marginTop="4dp"
         android:background="#ffff"
         android:entries="@array/specialist_aray"
-        android:prompt="@string/country_prompt" />
+        android:prompt="@string/special_prompt" />
 
     <Button
         android:id="@+id/serbtn"

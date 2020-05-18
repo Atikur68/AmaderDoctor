@@ -2,8 +2,9 @@
 <resources>
     <string name="app_name">আমাদের ডাক্তার</string>
     <string name="country_prompt">জেলা নির্বাচন করুন</string>
+    <string name="special_prompt">বিশেষজ্ঞ নির্বাচন করুন</string>
     <string name="email">ডিগ্রী</string>
     <string name="fullName">ডাক্তারের নাম</string>
-<!--    <string name="search_menu_title">Search</string>-->
-<!--    <string name="status_bar_notification_info_overflow">999+</string>-->
+    <!--    <string name="search_menu_title">Search</string>-->
+    <!--    <string name="status_bar_notification_info_overflow">999+</string>-->
 </resources>

@@ -3,7 +3,10 @@ package com.atikur.amaderdoctor;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,7 +33,8 @@ public class Complain extends AppCompatActivity {
     /* access modifiers changed from: private */
     public String mobilenameStrng = "";
     /* access modifiers changed from: private */
-    public ProgressDialog progressDialog;
+    private String emailBody = "";
+    private ProgressDialog progressDialog;
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
@@ -72,39 +76,73 @@ public class Complain extends AppCompatActivity {
             this.complains.setError(null);
         }
         if (checker) {
-            RequestQueue newRequestQueue = Volley.newRequestQueue(this);
-            this.progressDialog = new ProgressDialog(this);
-            this.progressDialog.setMessage("অপেক্ষা করুন...");
-            this.progressDialog.show();
-            StringRequest r1 = new StringRequest(1, "http://timitbd.com/taka/ComplainAdd.php", new Response.Listener<String>() {
-                public void onResponse(String ServerResponse) {
-                    Complain.this.progressDialog.dismiss();
-                    if (ServerResponse.contains("userall")) {
-                        Complain.this.compName.setText("");
-                        Complain.this.compMobile.setText("");
-                        Complain.this.complains.setText("");
-                        Toast.makeText(Complain.this, "সংযোজন সফল হয়েছে।", Toast.LENGTH_LONG).show();
-                        return;
-                    }
-                    Toast.makeText(Complain.this, "কিছু ভুল হয়েছে। আবার চেষ্টা করুন।", Toast.LENGTH_LONG).show();
-                }
-            }, new Response.ErrorListener() {
-                public void onErrorResponse(VolleyError volleyError) {
-                    Complain.this.progressDialog.dismiss();
-                    Toast.makeText(Complain.this, volleyError.toString(), Toast.LENGTH_LONG).show();
-                }
-            }) {
-                /* access modifiers changed from: protected */
-                public Map<String, String> getParams() {
-                    Map<String, String> params = new HashMap<>();
-                    params.put("compNameStr", Complain.this.compNameStr);
-                    params.put("mobilenameStrng", Complain.this.mobilenameStrng.trim());
-                    params.put("complainStr", Complain.this.complainStr);
-                    return params;
-                }
-            };
-            Volley.newRequestQueue(this).add(r1);
+
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage("অপেক্ষা করুন... ");
+            progressDialog.show();
+            emailBody = compNameStr+" --- " + mobilenameStrng+" --- " + complainStr;
+
+
+            try {
+               LongOperation l = new LongOperation();
+                l.execute();  //sends the email in background
+                Toast.makeText(this, l.get(), Toast.LENGTH_LONG).show();
+
+
+                compName.setText("");
+                compMobile.setText("");
+                complains.setText("");
+                progressDialog.dismiss();
+                startActivity(new Intent(Complain.this,MainActivity.class));
+
+
+            } catch (Exception e) {
+                Log.e("SendMail", e.getMessage(), e);
+            }
+
         }
     }
+
+    public class LongOperation extends AsyncTask<Void, Void, String> {
+        @Override
+        protected String doInBackground(Void... params) {
+            try {
+
+
+//            GMailSender sender = new GMailSender("sender.sendermail.com", "senders password");
+//            sender.sendMail("subject",
+//                    "body",
+//                    "sender.sendermail.com",
+//                    "reciepients.recepientmail.com");
+
+                //   "pankajgurjar90@gmail.com,gsolc.developers@gmail.com
+//
+                GMailSender sender = new GMailSender("atikalif019@gmail.com", "atikalif019@");
+                sender.sendMail("Amader Doctor/// Complain from Apps",
+                        emailBody, "atikalif019@gmail.com",
+                        "atikalif007@gmail.com,atikalif019@gmail.com    ");
+
+            } catch (Exception e) {
+                Log.e("error", e.getMessage(), e);
+                return "Data Not Sent! Try again.";
+            }
+            return "Data Sent. Please wait for confirmation.";
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+
+            Log.e("LongOperation", result + "");
+        }
+
+        @Override
+        protected void onPreExecute() {
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+        }
+    }
+
 }
 

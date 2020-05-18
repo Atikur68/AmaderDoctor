@@ -25,7 +25,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     public class UserViewHolder extends RecyclerView.ViewHolder {
         TextView appid;
         TextView designation;
-        TextView district;
+        TextView district,division;
         TextView docName;
 
         public UserViewHolder(View itemView) {
@@ -33,11 +33,20 @@ public class DoctorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             this.docName = (TextView) itemView.findViewById(R.id.docName);
             this.designation = (TextView) itemView.findViewById(R.id.designation);
             this.district = (TextView) itemView.findViewById(R.id.district);
-            this.appid = (TextView) itemView.findViewById(R.id.appId);
+           // this.appid = (TextView) itemView.findViewById(R.id.appId);
             itemView.setOnClickListener(new OnClickListener() {
                 public void onClick(View view) {
                     Intent intent = new Intent(DoctorAdapter.this.mcontext, Doctor_Details.class);
                     intent.putExtra("appId", ((Doctor_List) DoctorAdapter.this.docLists.get(UserViewHolder.this.getLayoutPosition())).getAppId());
+                    intent.putExtra("docName", ((Doctor_List) DoctorAdapter.this.docLists.get(UserViewHolder.this.getLayoutPosition())).getDocName());
+                    intent.putExtra("degree", ((Doctor_List) DoctorAdapter.this.docLists.get(UserViewHolder.this.getLayoutPosition())).getDegree());
+                    intent.putExtra("designation", ((Doctor_List) DoctorAdapter.this.docLists.get(UserViewHolder.this.getLayoutPosition())).getDesignation());
+                    intent.putExtra("specialist_on", ((Doctor_List) DoctorAdapter.this.docLists.get(UserViewHolder.this.getLayoutPosition())).getSpecialist_on());
+                    intent.putExtra("mobile", ((Doctor_List) DoctorAdapter.this.docLists.get(UserViewHolder.this.getLayoutPosition())).getMobile());
+                    intent.putExtra("email", ((Doctor_List) DoctorAdapter.this.docLists.get(UserViewHolder.this.getLayoutPosition())).getEmail());
+                    intent.putExtra("chamber", ((Doctor_List) DoctorAdapter.this.docLists.get(UserViewHolder.this.getLayoutPosition())).getChamber());
+                    intent.putExtra("division", ((Doctor_List) DoctorAdapter.this.docLists.get(UserViewHolder.this.getLayoutPosition())).getDivision());
+                    intent.putExtra("district", ((Doctor_List) DoctorAdapter.this.docLists.get(UserViewHolder.this.getLayoutPosition())).getDistrict());
                     DoctorAdapter.this.mcontext.startActivity(intent);
                 }
             });
@@ -59,7 +68,7 @@ public class DoctorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         ((UserViewHolder) holder).docName.setText(((Doctor_List) this.docLists.get(position)).getDocName());
         ((UserViewHolder) holder).designation.setText(((Doctor_List) this.docLists.get(position)).getDesignation());
         ((UserViewHolder) holder).district.setText(((Doctor_List) this.docLists.get(position)).getDistrict());
-        ((UserViewHolder) holder).appid.setText(((Doctor_List) this.docLists.get(position)).getAppId());
+       // ((UserViewHolder) holder).appid.setText(((Doctor_List) this.docLists.get(position)).getAppId());
     }
 
     public int getItemCount() {

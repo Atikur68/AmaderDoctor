@@ -5,13 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
-    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-
-    <permission
-        android:name="com.atikur.amaderdoctor.permission.C2D_MESSAGE"
-        android:protectionLevel="signature" />
 
     <application
         android:allowBackup="true"
@@ -20,21 +13,42 @@
         android:roundIcon="@drawable/amader_doctor_new"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddDoctor"></activity>
-        <activity android:name=".Doctor_Details" />
-        <activity android:name=".DoctorSearchAll" />
-        <activity android:name=".DoctorsSearchResult" />
-        <activity android:name=".AboutUs" />
-        <activity android:name=".Complain" />
-        <activity android:name=".PhoneVerification" />
-        <activity android:name=".SearchDistrictAll" />
-        <activity android:name=".SearchSpecialist" />
-        <activity android:name=".MainActivity"
+        <activity android:name=".SplashActivity"
             android:theme="@style/AppThemeNew">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".AddDoctor">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Doctor_Details" />
+        <activity android:name=".DoctorSearchAll" />
+        <activity android:name=".DoctorsSearchResult" />
+        <activity android:name=".AboutUs" />
+        <activity android:name=".Complain">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".PhoneVerification" />
+        <activity android:name=".SearchDistrictAll" />
+        <activity android:name=".SearchSpecialist" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppThemeNew">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

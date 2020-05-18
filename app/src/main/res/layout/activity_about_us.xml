@@ -28,8 +28,8 @@
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
-        android:src="@mipmap/amader_doctor_new"
-        app:civ_border_width="1dp" />
+        android:src="@mipmap/atik"
+        app:civ_border_width="0dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="মোঃ আতিকুর রহমান \10 সিএসই ১১তম ব্যাচ \10 পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়"
+            android:text="মোঃ আতিকুর রহমান \n সিএসই ১১তম ব্যাচ \n পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়"
             android:textSize="20dp" />
     </LinearLayout>
 
@@ -66,8 +66,8 @@
         android:layout_alignParentTop="true"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
-        android:src="@mipmap/ic_launcher"
-        app:civ_border_width="2dp" />
+        android:src="@drawable/tanvir"
+        app:civ_border_width="0dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -78,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="তানভীর হক সাগর \10 সিএসই ১১তম ব্যাচ \10 পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়"
+            android:text="তানভীর হক সাগর \n সিএসই ১১তম ব্যাচ \n পটুয়াখালী বিজ্ঞান ও প্রযুক্তি বিশ্ববিদ্যালয়"
             android:textSize="20dp" />
     </LinearLayout>
 

@@ -15,21 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchDistrictAll extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    Spinner distSpinner;
-    Spinner divSpinner;
-    Button searchbtn;
-    String sp1;
-    String sp2;
+    private Spinner distSpinner,divSpinner;
+    private Button searchbtn;
+    String sp1,sp2;
+
 
     /* access modifiers changed from: protected */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView((int) R.layout.activity_search_district_all);
-        this.divSpinner = (Spinner) findViewById(R.id.spinner5);
-        this.distSpinner = (Spinner) findViewById(R.id.spinner6);
-        this.distSpinner.setPrompt("জেলা নির্বাচন করুন");
-        this.divSpinner.setOnItemSelectedListener(this);
-        this.distSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        divSpinner = (Spinner) findViewById(R.id.spinner5);
+        distSpinner = (Spinner) findViewById(R.id.spinner6);
+        distSpinner.setPrompt("জেলা নির্বাচন করুন");
+        divSpinner.setOnItemSelectedListener(this);
+        distSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 SearchDistrictAll.this.sp2 = String.valueOf(SearchDistrictAll.this.distSpinner.getSelectedItem());
             }
@@ -37,11 +36,11 @@ public class SearchDistrictAll extends AppCompatActivity implements AdapterView.
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
-        this.searchbtn = (Button) findViewById(R.id.serbtnn);
-        this.searchbtn.setOnClickListener(new View.OnClickListener() {
+        searchbtn = (Button) findViewById(R.id.serbtnn);
+        searchbtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(SearchDistrictAll.this, DoctorSearchAll.class);
-                intent.putExtra("District", SearchDistrictAll.this.sp2);
+                intent.putExtra("District", sp2);
                 SearchDistrictAll.this.startActivity(intent);
             }
         });

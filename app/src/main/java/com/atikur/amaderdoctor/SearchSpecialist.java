@@ -11,17 +11,32 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class SearchSpecialist extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    Spinner distSpinner;
-    Spinner divSpinner;
-    Button searchbtn;
-    String sp1;
-    String sp2;
-    String sp3;
-    Spinner specialSpinner;
+    private Spinner distSpinner;
+    private Spinner divSpinner;
+    private Button searchbtn;
+    private String sp1;
+    private String sp2;
+    private String sp3;
+    private Spinner specialSpinner;
+    private List<String> special_list = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,8 +45,15 @@ public class SearchSpecialist extends AppCompatActivity implements AdapterView.O
         this.divSpinner = (Spinner) findViewById(R.id.spinner);
         this.distSpinner = (Spinner) findViewById(R.id.spinner2);
         this.specialSpinner = (Spinner) findViewById(R.id.spinner3);
+
+
+        specialSearch();
+
+
+
         this.distSpinner.setPrompt("জেলা নির্বাচন করুন");
         this.divSpinner.setOnItemSelectedListener(this);
+
         this.distSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 SearchSpecialist.this.sp2 = String.valueOf(SearchSpecialist.this.distSpinner.getSelectedItem());
@@ -59,8 +81,98 @@ public class SearchSpecialist extends AppCompatActivity implements AdapterView.O
         });
     }
 
+    private void specialSearch() {
+        special_list.add("বিশেষজ্ঞ নির্বাচন করুন");
+        special_list.add("চক্ষু-বিশেষজ্ঞ");
+        special_list.add("বিশুরোগ-বিশেষজ্ঞ");
+        special_list.add("মেডিসিন-বিশেষজ্ঞ");
+        special_list.add("স্নায়ুরোগ-বিশেষজ্ঞ");
+        special_list.add("হৃদরোগ-বিশেষজ্ঞ");
+        special_list.add("মনোরোগ-বিশেষজ্ঞ");
+        special_list.add("মেরুদণ্ড-বিশেষজ্ঞ");
+        special_list.add("স্ত্রী-রোগ-বিশেষজ্ঞ");
+        special_list.add("ডায়াবেটিস-বিশেষজ্ঞ");
+        special_list.add("মুখ-দাঁত-রোগ-বিশেষজ্ঞ");
+        special_list.add("ইউরোলজী-বিশেষজ্ঞ");
+        special_list.add("পরিপাকতন্ত্র-বিশেষজ্ঞ");
+        special_list.add("কিডনী-রোগ-বিশেষজ্ঞ");
+        special_list.add("প্যারালাইসিস-বিশেষজ্ঞ");
+        special_list.add("হাড়-জোড়া-রোগ-বিশেষজ্ঞ");
+        special_list.add("নাক-কান-গলা-বিশেষজ্ঞ");
+        special_list.add("চর্ম-এলার্জি-বিশেষজ্ঞ");
+        special_list.add("যৌন-রোগ-বিশেষজ্ঞ");
+        special_list.add("ল্যাপারোসকপিক-সার্জন");
+        special_list.add("কনসালটেন্ট-সনোলজিষ্ট");
+        special_list.add("রেডিওলজী-এন্ড-ইমেজিং-বিশেষজ্ঞ");
+        special_list.add("জেনারেল-সার্জন");
+        special_list.add("মাইক্রোবায়োলজী-বিশেষজ্ঞ");
+
+
+        RequestQueue newRequestQueue = Volley.newRequestQueue(this);
+
+        StringRequest r0 = new StringRequest(Request.Method.POST, "https://amaderdoctor.timitbd.com/specialistList.php", new Response.Listener<String>() {
+            public void onResponse(String ServerResponse) {
+                if (ServerResponse.contains("userall")) {
+                    try {
+                        JSONArray heroArray = new JSONObject(ServerResponse).getJSONArray("userall");
+
+                        special_list.clear();
+                        for (int i = 0; i < heroArray.length(); i++) {
+                            JSONObject heroObject = heroArray.getJSONObject(i);
+
+                            special_list.add(heroObject.getString("specialist"));
+
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+
+                    Toast.makeText(SearchSpecialist.this, "সঠিক তথ্য দিন ", Toast.LENGTH_LONG).show();
+                }
+            }
+        }, new Response.ErrorListener() {
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(SearchSpecialist.this, "আপনার ইন্টারনেট সংযোগটি যাচাই করুন ", Toast.LENGTH_LONG).show();
+
+            }
+        }) {
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json");
+                return headers;
+            }
+
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                return params;
+            }
+
+        };
+        Volley.newRequestQueue(this).add(r0);
+    }
+
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         this.sp1 = String.valueOf(this.divSpinner.getSelectedItem());
+        this.sp3 = String.valueOf(this.specialSpinner.getSelectedItem());
+
+
+        if (this.sp3.contentEquals("বিশেষজ্ঞ নির্বাচন করুন")) {
+
+
+
+            ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1 , special_list);
+            dataAdapter2.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+            dataAdapter2.notifyDataSetChanged();
+            this.specialSpinner.setAdapter(dataAdapter2);
+         //   Toast.makeText(this, String.valueOf(this.specialSpinner.getSelectedItem()), Toast.LENGTH_SHORT).show();
+
+        }
+
         if (this.sp1.contentEquals("বিভাগ নির্বাচন করুন")) {
             List<String> list = new ArrayList<>();
             list.add("জেলা নির্বাচন করুন");
@@ -86,7 +198,7 @@ public class SearchSpecialist extends AppCompatActivity implements AdapterView.O
             dataAdapter2.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
             dataAdapter2.notifyDataSetChanged();
             this.distSpinner.setAdapter(dataAdapter2);
-            Toast.makeText(this, String.valueOf(this.distSpinner.getSelectedItem()), 0).show();
+          //  Toast.makeText(this, String.valueOf(this.distSpinner.getSelectedItem()), Toast.LENGTH_SHORT).show();
         }
         if (this.sp1.contentEquals("চট্টগ্রাম")) {
             List<String> list3 = new ArrayList<>();
