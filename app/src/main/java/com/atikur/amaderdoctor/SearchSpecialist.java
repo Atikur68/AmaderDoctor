@@ -82,9 +82,10 @@ public class SearchSpecialist extends AppCompatActivity implements AdapterView.O
     }
 
     private void specialSearch() {
+        special_list.clear();
         special_list.add("বিশেষজ্ঞ নির্বাচন করুন");
         special_list.add("চক্ষু-বিশেষজ্ঞ");
-        special_list.add("বিশুরোগ-বিশেষজ্ঞ");
+        special_list.add("শিশুরোগ-বিশেষজ্ঞ");
         special_list.add("মেডিসিন-বিশেষজ্ঞ");
         special_list.add("স্নায়ুরোগ-বিশেষজ্ঞ");
         special_list.add("হৃদরোগ-বিশেষজ্ঞ");
@@ -119,9 +120,7 @@ public class SearchSpecialist extends AppCompatActivity implements AdapterView.O
                         special_list.clear();
                         for (int i = 0; i < heroArray.length(); i++) {
                             JSONObject heroObject = heroArray.getJSONObject(i);
-
                             special_list.add(heroObject.getString("specialist"));
-
                         }
 
                     } catch (JSONException e) {

@@ -73,7 +73,7 @@ public class DoctorSearchAll extends AppCompatActivity {
 
                             if(dist.equals(district)){
                                 count=1;
-                                docLists.add(new Doctor_List(1, heroObject.getString("doctorName"),heroObject.getString("degree"),heroObject.getString("designation"), heroObject.getString("specialist_on"),heroObject.getString("mobile"),heroObject.getString("email"),heroObject.getString("chamber"),heroObject.getString("division"), heroObject.getString("district"), heroObject.getString("id")));
+                                docLists.add(new Doctor_List(1, heroObject.getString("doctorName").trim(),heroObject.getString("degree").trim(),heroObject.getString("designation").trim(), heroObject.getString("specialist_on").trim(),heroObject.getString("mobile").trim(),heroObject.getString("email").trim(),heroObject.getString("chamber").trim(),heroObject.getString("division").trim(), heroObject.getString("district").trim(), heroObject.getString("id").trim()));
                             }
 
                         }
@@ -97,7 +97,7 @@ public class DoctorSearchAll extends AppCompatActivity {
                 progressDialog.dismiss();
                 recyclerView.setVisibility(View.GONE);
                 txtwarning.setVisibility(View.VISIBLE);
-                Toast.makeText(DoctorSearchAll.this, volleyError.toString(), Toast.LENGTH_LONG).show();
+               // Toast.makeText(DoctorSearchAll.this, volleyError.toString(), Toast.LENGTH_LONG).show();
             }
         }) {
 

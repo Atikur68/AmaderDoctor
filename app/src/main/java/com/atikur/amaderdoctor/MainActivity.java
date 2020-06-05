@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent1);
                 break;
             case R.id.imageView2:
-                Intent intent2 = new Intent(MainActivity.this, PhoneVerification.class);
+                Intent intent2 = new Intent(MainActivity.this, AddDoctor.class);
                 startActivity(intent2);
                 break;
             case R.id.imageView3:

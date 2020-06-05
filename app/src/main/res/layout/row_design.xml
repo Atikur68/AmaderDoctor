@@ -17,25 +17,42 @@
         android:orientation="vertical">
 
 
-        <TextView
-            android:id="@+id/docName"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1.2"
-            android:gravity="center"
-            android:text=""
-            android:textColor="@color/white"
-            android:textSize="25dp" />
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:layout_weight="1.4">
+
+            <TextView
+                android:id="@+id/docName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="left"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="27dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="left"
+            android:gravity="left"
+            android:layout_weight=".8">
+
 
         <TextView
             android:id="@+id/designation"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="left"
             android:text=""
             android:textColor="@color/white"
-            android:textSize="18dp" />
+            android:textSize="16dp" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,26 +67,26 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="left"
-                android:textColor="@color/white"
-                android:text="" />
+                android:text=""
+                android:textColor="@color/white" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/ID"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="0.3"-->
-<!--                android:gravity="right"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:text="App ID :" />-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/ID"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_weight="0.3"-->
+            <!--                android:gravity="right"-->
+            <!--                android:textColor="@color/white"-->
+            <!--                android:text="App ID :" />-->
 
-<!--            <TextView-->
-<!--                android:id="@+id/appId"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="0.7"-->
-<!--                android:gravity="left"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:text="Hello" />-->
+            <!--            <TextView-->
+            <!--                android:id="@+id/appId"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_weight="0.7"-->
+            <!--                android:gravity="left"-->
+            <!--                android:textColor="@color/white"-->
+            <!--                android:text="Hello" />-->
         </LinearLayout>
 
     </LinearLayout>

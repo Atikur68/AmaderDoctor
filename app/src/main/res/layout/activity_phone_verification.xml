@@ -20,16 +20,22 @@
             android:layout_margin="20dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="+88 "
-                android:textSize="20dp" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="+88 "-->
+<!--                android:textSize="20dp" />-->
+
+            <Spinner
+                android:id="@+id/spinnerCountries"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content" />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_phone_number"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:hint="Phone Number" />
         </LinearLayout>
 
@@ -57,8 +63,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:clickable="false"
+            android:inputType="number"
             android:hint="Enter Verification Code" />
+
+<!--        android:clickable="false"-->
 
         <Button
             android:id="@+id/btn_sign_in"

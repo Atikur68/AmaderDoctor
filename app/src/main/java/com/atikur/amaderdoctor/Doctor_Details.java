@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,17 +33,37 @@ public class Doctor_Details extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView((int) R.layout.activity_doctor__details);
-        this.docName = (TextView) findViewById(R.id.docName);
-        this.docDegree = (TextView) findViewById(R.id.docDegree);
-        this.docDesignation = (TextView) findViewById(R.id.docDesignation);
-        this.docSpeciality = (TextView) findViewById(R.id.docSpeciality);
-        this.docMobile = (TextView) findViewById(R.id.docMobile);
-        this.docEmail = (TextView) findViewById(R.id.docEmail);
-        this.docChamber = (TextView) findViewById(R.id.docChamber);
-        this.division = (TextView) findViewById(R.id.docDivision);
-        this.district = (TextView) findViewById(R.id.docDistrict);
-        this.bnd = getIntent().getExtras();
-        this.str = this.bnd.getString("appId");
+        docName = (TextView) findViewById(R.id.docName);
+        docDegree = (TextView) findViewById(R.id.docDegree);
+        docDesignation = (TextView) findViewById(R.id.docDesignation);
+        docSpeciality = (TextView) findViewById(R.id.docSpeciality);
+        docMobile = (TextView) findViewById(R.id.docMobile);
+        docEmail = (TextView) findViewById(R.id.docEmail);
+        docChamber = (TextView) findViewById(R.id.docChamber);
+        division = (TextView) findViewById(R.id.docDivision);
+        district = (TextView) findViewById(R.id.docDistrict);
+        bnd = getIntent().getExtras();
+        str = bnd.getString("appId");
+
+        String mobilenumber= bnd.getString("mobile");
+        String emailAddres= bnd.getString("email");
+
+//        if(mobilenumber.contains("N/A")){
+//
+//            docMobile.setVisibility(View.GONE);
+//
+//        }else {
+//            docMobile.setText(bnd.getString("mobile"));
+//        }
+//
+//
+//        if(emailAddres.contains("N/A")){
+//
+//            docEmail.setVisibility(View.GONE);
+//
+//        }else {
+//            docEmail.setText(bnd.getString("email"));
+//        }
 
         docName.setText(bnd.getString("docName"));
         docDegree.setText(bnd.getString("degree"));

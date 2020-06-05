@@ -205,7 +205,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="ডাক্তার সংযোজন করুন"
+                        android:text="তথ্য সংযোজন করুন"
                         android:textColor="#ffff"
                         android:textSize="18dp" />
                 </LinearLayout>
@@ -252,7 +252,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="অভিযোগ দিন "
+                        android:text="অভিযোগ / উপদেশ "
                         android:textColor="#ffff"
                         android:textSize="18dp" />
                 </LinearLayout>

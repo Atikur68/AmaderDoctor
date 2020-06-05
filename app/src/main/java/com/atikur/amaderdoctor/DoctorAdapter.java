@@ -66,8 +66,19 @@ public class DoctorAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         ((UserViewHolder) holder).docName.setText(((Doctor_List) this.docLists.get(position)).getDocName());
-        ((UserViewHolder) holder).designation.setText(((Doctor_List) this.docLists.get(position)).getDesignation());
-        ((UserViewHolder) holder).district.setText(((Doctor_List) this.docLists.get(position)).getDistrict());
+        ((UserViewHolder) holder).designation.setText(((Doctor_List) this.docLists.get(position)).getDegree());
+
+        String speciality= docLists.get(position).getSpecialist_on();
+
+        if(speciality.contains("অন্যান্য বিশেষজ্ঞ")){
+
+            ((UserViewHolder) holder).district.setText("N/A");
+
+        }else {
+            ((UserViewHolder) holder).district.setText(((Doctor_List) this.docLists.get(position)).getSpecialist_on());
+        }
+
+
        // ((UserViewHolder) holder).appid.setText(((Doctor_List) this.docLists.get(position)).getAppId());
     }
 

@@ -11,6 +11,12 @@
         <item>সিলেট</item>
         <item>ময়মনসিংহ</item>
     </array>
+
+    <array name="country_codes">
+        <item>Country</item>
+
+    </array>
+
     <array name="specialist_aray">
         <item>বিশেষজ্ঞ নির্বাচন করুন</item>
         <item>চক্ষু-বিশেষজ্ঞ</item>

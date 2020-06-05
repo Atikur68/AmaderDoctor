@@ -21,27 +21,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddDoctor">
+        <activity android:name=".AddDoctor"
+            android:label="তথ্য সংযোজন করুন">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Doctor_Details" />
-        <activity android:name=".DoctorSearchAll" />
-        <activity android:name=".DoctorsSearchResult" />
-        <activity android:name=".AboutUs" />
-        <activity android:name=".Complain">
+        <activity android:name=".Doctor_Details"
+            android:label="সম্পূর্ন বিবরণ"/>
+        <activity android:name=".DoctorSearchAll"
+            android:label="জেলার সকল ডাক্তার"/>
+        <activity android:name=".DoctorsSearchResult"
+            android:label="বিশেষজ্ঞ ডাক্তার"/>
+        <activity android:name=".AboutUs"
+            android:label="আমাদের সম্পর্কে"/>
+        <activity android:name=".Complain"
+            android:label="অভিযোগ / উপদেশ" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".PhoneVerification" />
-        <activity android:name=".SearchDistrictAll" />
-        <activity android:name=".SearchSpecialist" />
+        <activity android:name=".PhoneVerification"
+            android:label="তথ্য সংযোজন করুন"/>
+        <activity android:name=".SearchDistrictAll"
+            android:label="জেলার সকল ডাক্তার"/>
+        <activity android:name=".SearchSpecialist"
+            android:label="খুজুন বিশেষজ্ঞ ডাক্তার"/>
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppThemeNew">

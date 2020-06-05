@@ -6,6 +6,11 @@ public class Doctor_List {
     private String district;
     private String docName, degree, specialist_on, mobile, email, chamber, division;
     private int id;
+    private String infoCollectorName;
+
+    public Doctor_List(String infoCollectorName) {
+        this.infoCollectorName = infoCollectorName;
+    }
 
     public Doctor_List(int id, String docName, String degree, String designation, String specialist_on, String mobile, String email, String chamber, String division, String district, String appId) {
         this.id = id;
@@ -19,6 +24,10 @@ public class Doctor_List {
         this.division = division;
         this.district = district;
         this.appId = appId;
+    }
+
+    public String getInfoCollectorName() {
+        return infoCollectorName;
     }
 
     public String getDocName() {
